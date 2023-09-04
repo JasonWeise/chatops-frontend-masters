@@ -69,14 +69,17 @@ async function handleSlackInteractivity(payload: SlackModalPayload){
 	switch (callback_id){
 		case 'chatop-modal':
 			const data = payload.view.state.values;
+			console.log("**********")
+			console.log(JSON.stringify(data))
 			//NOTE: the data fields such as spice_level below are configurable in our utils helper function
 			const fields = {
-				user_request: data.opinion_block.opinion.value,
-				importance_level: data.spice_level_block.spice_level.selected_option.value,
+				user_request: data.user_request.user_request.value,
+				importance_level: data.importance_level_block.importance_level.selected_option.value,
 				submitter: payload.user.username
 			}
+
 			await slackApi('chat.postMessage', {
-				channel: payload.channel,
+				channel: 'C05QK6GNFSS',
 				text: `yeah there :eyes: <@${payload.user.id}> just we have received your ${fields.importance_level} request!\n
 				We will follow up shortly`
 			})

@@ -71,16 +71,16 @@ type SlackBlockInput = {
 
 type SlackBlock = SlackBlockSection | SlackBlockInput;
 
-type FoodOpinionModalState = {
+type AppModalState = {
 	values: {
 		opinion_block: {
-			opinion: {
+			user_request: {
 				type: 'plain_text_input';
 				value: string;
 			};
 		};
-		spice_level_block: {
-			spice_level: {
+		importance_level_block: {
+			importance_level: {
 				type: 'static_select';
 				selected_option: {
 					text: {
@@ -134,7 +134,7 @@ type SlackModalPayload = {
 		blocks: SlackBlock[];
 		private_metadata: string;
 		callback_id: string;
-		state: FoodOpinionModalState;
+		state: AppModalState;
 		hash: string;
 		title: {
 			type: 'plain_text';
