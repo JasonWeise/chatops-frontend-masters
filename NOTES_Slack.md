@@ -1,4 +1,8 @@
 
+REQUIRED ITEMS
+https://api.slack.com/
+https://app.slack.com/block-kit-builder
+
 1. Setup a new Slack account and workspace for testing and dev
 2. Go to https://api.slack.com/
 3. Click "Your Apps" in top right corner of page
@@ -24,3 +28,15 @@
    4. Install to Workspace under "OAuth Tokens for Your Workspace" section
    > NOTE: If you get an error about no app(bot) user, go to Features->App Home and edit the information to add a username for the app
    > 
+
+9. Add `Slack Signing Secret` and `Bot User OAuth Token` to .env file </br>
+eg. .env:
+```angular2html
+SLACK_BOT_OAUTH_TOKEN=xoxb-5841765008019-5841900516482-bdEfrjNiYS1SWO2Tpp4Hy6xa
+SLACK_SIGNING_SECRET=9986c29837e9a4d56e9cec35aeb0a639
+```
+>NOTE: You will find these under the `OAuth & Permissions` and `Basic Information` menu areas respectively</br>
+> NOTE: You will need to restart Netlify live tunnel if using. This will also mean you need to update the live URL hash under `Slash Commands` in the Slack API portal
+10. Turn on Slack Interactivity `(Main Menu->Interactivity & Shortcuts -> TURN ON (Interactivity))` </br>
+    Enter the URL endpoint enabled in step 7. - NOTE This could also be a totally seperate Endpoint if you wanted a seperation of concerns
+> NOTE: This is required so you can add an endpoint for Slack to communicate with when sending data from forms etc.</br>

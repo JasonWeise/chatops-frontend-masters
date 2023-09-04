@@ -1,7 +1,7 @@
 Netlify CLI and Live dev server (alternative to NGrok)
 
 1. Install Netflify CLI </br>
-`npm install -g netflify-cli`
+`npm install -g netlify-cli`
 2. Check CLI version </br>
 `ntl -v`
 3. Login to Netlify CLI </br>
